@@ -1,0 +1,53 @@
+ADD n1 n2 begin
+    x0 := x2 + 0
+    loop x1 begin
+        x0 := x0 + 1
+    end
+end
+
+SUB n1 n2 begin
+    x0 := x2 + 0
+    loop x1 begin
+        x0 := x0 - 1
+    end
+end
+
+MULT n1 n2 begin
+    loop x1 begin
+        loop x2 begin
+            x0 := x0 + 1
+        end
+    end
+end
+
+TWO begin
+    x0 := x0 + 1
+    x0 := x0 + 1
+end
+
+THREE begin
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+end
+
+FIVE begin
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+end
+
+TEN begin
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+    x0 := x0 + 1
+end
