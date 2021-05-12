@@ -131,7 +131,8 @@ class AssignNode(BinaryNode):
         self.right = right
 
     def eval(self, context):
-        context["VAR"][self.left.val] = self.right.eval(context)
+        new_val = self.right.eval(context)
+        context["VAR"][self.left.val] = max(0, new_val)
 
 
 class LoopNode(BlockNode):
