@@ -41,7 +41,7 @@ def parse_file(parser, file_path) -> str:
 
 
 def shell(parser, file_path, program_cache=""):
-    program = ""
+    buffer = ""
 
     while True:
         cmd = input("$> ")
@@ -49,25 +49,25 @@ def shell(parser, file_path, program_cache=""):
             break
         elif cmd.lower() in ["run", "r"]:
             try:
-                parser.parse(program)
-                program_cache += program
+                parser.parse(buffer)
+                program_cache += buffer
             except SyntaxError as err:
                 print(f"{err}")
             finally:
-                program = ""
+                buffer = ""
         elif cmd.lower() in ["save", "s"]:
             try:
-                parser.parse(program)
-                program_cache += program
+                parser.parse(buffer)
+                program_cache += buffer
             except SyntaxError as err:
                 print(f"Did not save because current code caused Error:\n{err}")
             else:
                 with open(file_path, "w") as file:
                     file.write(program_cache)
             finally:
-                program = ""
+                buffer = ""
         else:
-            program += cmd + "\n"
+            buffer += cmd + "\n"
 
 if __name__ == '__main__':
     file_path = init_file()
