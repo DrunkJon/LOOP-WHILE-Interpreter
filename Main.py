@@ -51,19 +51,21 @@ def shell(parser, file_path, program_cache=""):
             try:
                 parser.parse(program)
                 program_cache += program
-                program = ""
             except SyntaxError as err:
                 print(f"{err}")
+            finally:
+                program = ""
         elif cmd.lower() in ["save", "s"]:
             try:
                 parser.parse(program)
                 program_cache += program
-                program = ""
             except SyntaxError as err:
                 print(f"Did not save because current code caused Error:\n{err}")
             else:
                 with open(file_path, "w") as file:
                     file.write(program_cache)
+            finally:
+                program = ""
         else:
             program += cmd + "\n"
 
